@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/markets_map'>
+<table>
+<p>Just enter any artists name:</p>
+<tr><td>Name:</td><td><input name='Artist name' type='TEXT' width='60'></td></tr>
+</table>
+<p><input value='Proceed' type='SUBMIT'></p>
+</form>
+
+{% endblock %}
