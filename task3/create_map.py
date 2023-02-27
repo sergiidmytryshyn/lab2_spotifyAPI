@@ -13,11 +13,11 @@ def create_map(market_names: set) -> None:
     zoom_start=2)
     markets_availability = folium.FeatureGroup(name="Markets' availability")
     markets_availability.add_child(
-        folium.GeoJson(data=open('world.json', 'r', encoding='utf-8-sig').read(),
+        folium.GeoJson(data=open('task3/world.json', 'r', encoding='utf-8-sig').read(),
                        style_function=lambda x: {'fillColor': 'darkgreen'
                        if x['properties']['NAME'] in market_names else "darkred"}))
     markets_names = folium.FeatureGroup(name="Markets' names")
-    with open('world.json', 'r', encoding='utf-8-sig') as file:
+    with open('task3/world.json', 'r', encoding='utf-8-sig') as file:
         country_geo = json.loads(file.read())
         for i in country_geo['features']:
             if i['properties']['NAME'] in market_names:
@@ -28,4 +28,4 @@ def create_map(market_names: set) -> None:
     mapp.add_child(markets_availability)
     mapp.add_child(markets_names)
     mapp.add_child(folium.LayerControl())
-    mapp.save('templates/Available_markets.html')
+    mapp.save('task3/templates/Available_markets.html')
